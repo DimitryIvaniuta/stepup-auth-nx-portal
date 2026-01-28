@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "./apps/stepup-ui" },
+    { "path": "./apps/admin-ui" },
+    { "path": "./libs/shared/ui" }
+  ]
+}
