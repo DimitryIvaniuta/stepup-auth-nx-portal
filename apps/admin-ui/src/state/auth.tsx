@@ -24,12 +24,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUserId(uid);
       localStorage.setItem(STORAGE_KEY, t);
       localStorage.setItem(STORAGE_UID, uid);
+      // backward-compat
+      localStorage.setItem('token', t);
+      localStorage.setItem('userId', uid);
     },
     clear: () => {
       setToken(null);
       setUserId(null);
       localStorage.removeItem(STORAGE_KEY);
       localStorage.removeItem(STORAGE_UID);
+      // backward-compat
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
     }
   }), [token, userId]);
 
