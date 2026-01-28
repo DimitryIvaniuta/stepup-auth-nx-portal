@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "paths": {
+      "@/*": [
+        "apps/stepup-ui/src/*"
+      ],
+      "@shared/ui": [
+        "libs/shared/ui/src/index.ts"
+      ],
+      "@shared/api": [
+        "libs/shared/api/src/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "vite-env.d.ts"
+  ]
+}

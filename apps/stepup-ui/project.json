@@ -1,0 +1,49 @@
+{
+  "name": "stepup-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/stepup-ui/src",
+  "targets": {
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "configFile": "apps/stepup-ui/vite.config.ts",
+        "port": 5173,
+        "buildTarget": "stepup-ui:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "stepup-ui:build:production"
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{workspaceRoot}/dist/apps/stepup-ui"
+      ],
+      "options": {
+        "configFile": "apps/stepup-ui/vite.config.ts",
+        "outputPath": "dist/apps/stepup-ui"
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "options": {
+        "configFile": "apps/stepup-ui/vite.config.ts",
+        "port": 5273,
+        "buildTarget": "stepup-ui:build"
+      }
+    },
+    "typecheck:watch": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "tsConfig": "apps/stepup-ui/tsconfig.json",
+        "watch": true,
+        "pretty": false,
+        "noEmit": true
+      }
+    }
+  },
+  "tags": []
+}

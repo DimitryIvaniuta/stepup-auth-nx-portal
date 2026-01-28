@@ -1,0 +1,40 @@
+{
+  "name": "admin-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/admin-ui/src",
+  "targets": {
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "admin-ui:build",
+        "configFile": "apps/admin-ui/vite.config.ts",
+        "port": 5174
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "admin-ui:build:production"
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{workspaceRoot}/dist/apps/admin-ui"
+      ],
+      "options": {
+        "configFile": "apps/admin-ui/vite.config.ts",
+        "outputPath": "dist/apps/admin-ui"
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "options": {
+        "buildTarget": "admin-ui:build",
+        "port": 5274,
+        "configFile": "apps/admin-ui/vite.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
